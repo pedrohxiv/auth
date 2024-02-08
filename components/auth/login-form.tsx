@@ -53,13 +53,12 @@ export const LoginForm = () => {
       login(values)
         .then((data) => {
           if (data?.error) {
-            form.reset();
             setError(data.error);
           }
 
           if (data?.success) {
+            setSuccess(data.success);
             form.reset();
-            setError(data.success);
           }
 
           if (data?.twoFactor) {
@@ -106,7 +105,7 @@ export const LoginForm = () => {
                       <FormControl>
                         <Input
                           {...field}
-                          placeholder="simon.philips@example.com"
+                          placeholder="simon.philips@mail.com"
                           type="email"
                           disabled={isPending}
                         />

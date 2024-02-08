@@ -84,7 +84,7 @@ export const RegisterForm = () => {
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="simon.philips@example.com"
+                      placeholder="simon.philips@mail.com"
                       type="email"
                       disabled={isPending}
                     />

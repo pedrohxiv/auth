@@ -7,6 +7,7 @@ interface UserInfoProps {
   user?: DefaultSession["user"] & {
     role: "ADMIN" | "USER";
     isTwoFactorEnabled: boolean;
+    isOAuth: boolean;
   };
   label: string;
 }
@@ -42,12 +43,16 @@ export const UserInfo = ({ user, label }: UserInfoProps) => {
             {user?.role}
           </p>
         </div>
-        <div className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-md">
-          <p className="text-sm font-medium">Two Factor Authentication</p>
-          <Badge variant={user?.isTwoFactorEnabled ? "success" : "destructive"}>
-            {user?.isTwoFactorEnabled ? "ON" : "OFF"}
-          </Badge>
-        </div>
+        {user?.isOAuth === false && (
+          <div className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-md">
+            <p className="text-sm font-medium">Two Factor Authentication</p>
+            <Badge
+              variant={user?.isTwoFactorEnabled ? "success" : "destructive"}
+            >
+              {user?.isTwoFactorEnabled ? "ON" : "OFF"}
+            </Badge>
+          </div>
+        )}
       </CardContent>
     </Card>
   );
