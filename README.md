@@ -1,4 +1,4 @@
-# Autenticação com NextAuth.js
+# Projeto Autenticação com NextAuth.js
 
 ## Descrição do Projeto
 
